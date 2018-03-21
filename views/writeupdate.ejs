@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title><%=title%></title> 
+    </head>
+
+    <link rel='stylesheet' href="/custom.css">
+
+    <body>
+            <% include ./menubar.ejs %>
+    <div id="root"> 
+       
+
+        <% include ./leftsidebar.ejs %>
+
+        <div id="con">
+            <div id="con2">
+        <H1 style=""><%=title%></H1>
+        <Hr >
+        <p>안녕하세요. <%=title%> 페이지 입니다. 반갑습니다. 
+            <form id="sub" method="post" action="/board/writeupdate">
+            <input name="id" value="<%=idx%>" type="hidden" style="width:200px; height:30px;" >
+            <% if ( !locals.user ){ %>
+            <input id="name" value="<%=name%>" name="name" type="text" style="width:280px; height:30px;" placeholder='작성자를 입력하세요.' >
+            <input id="password" value="<%=password%>" name="password" type="hidden" style="width:280px; height:30px;" placeholder='비밀번호를 입력하세요.' >
+            <% } %>
+            <input id="title" value="<%=titles%>" name="title" type="text" style="width:800px; height:30px;" placeholder='글 제목을 입력하세요.' >   
+            <textarea id="description"  name="description" style="width:900px; height:500px" ><%=desc%></textarea>
+            <button type="button" class="btn-1"onclick="beforego()" style="float:left; width:200px; height:50px">수정완료</button>
+            <button type="button" class="btn-1" style="float:left; width:200px; height:50px" onclick="goback()">글 목록보기</button>
+            </form>
+       
+         </div>
+        </div>
+        
+        
+    </div>
+    <% include ./footer.ejs %>
+    </body>
+
+     <script type="text/javascript">
+        function goback(){
+            location.href='/board';
+        }
+
+        function beforego(){
+            if(document.getElementById('title').value == ""){
+                alert('제목을 입력해 주세요!');
+            }
+            if(document.getElementById('description').value == ""){
+                alert('내용을 입력해 주세요!');
+            }
+            
+            document.getElementById('sub').submit();
+        }
+    </script>
+</html>

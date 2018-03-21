@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title><%=title%></title> 
+    </head>
+
+    <link rel='stylesheet' href="/custom.css">
+    <body>
+     
+    <div id="root"> 
+        <% include ../menubar.ejs %>
+
+        <% include ../leftsidebar.ejs %>
+
+        <div id="con">
+            
+        <H1><%=title%></H1>
+        <Hr >
+        <p>안녕하세요. <%=title%> 페이지 입니다. 반갑습니다.</p> 
+        
+        <form id="sub" style="border:1px solid black; padding:20px; background:#EBE7E7" method="post" action="/signinpost">
+        
+        <table style="border:0px solid #EBE7E7">
+           <tr>
+               <td>
+                   아이디 :
+               </td>
+               <td>
+                    <input type="text" id="id" name="id">
+                </td>
+               <td>
+                    <button> 아이디 중복 체크 </button>
+               </td>
+           </tr>
+           <tr>
+                <td>
+                    별명 : 
+                </td>
+                <td>
+                    <input type="text" id="displayName" name="displayName">
+                </td>
+                <td>
+                    <button> 별명 중복 체크 </button>
+                </td>
+            </tr>
+           <tr>
+               <td>
+                   비밀번호 : 
+               </td>
+               <td>
+                    <input type="password" id="p1" name="password">
+               </td>
+           </tr>
+           <tr>
+                <td>
+                    비밀번호 확인 : 
+                </td>
+                <td>
+                    <input type="password" id="p2">
+                </td>
+            </tr>
+            <tr>
+                    <td>
+                         생년월일 : 
+                    </td>
+                    <td>
+                        <input type="text" id="birth" name="birth">
+                    </td>
+            </tr>
+            <tr>
+                    <td>
+                        이메일 : 
+                    </td>
+                    <td>
+                        <input type="text" id="email" name="email">
+                    </td>
+            </tr>
+            <tr>
+                <td>
+                    <intput type="submit" value="제출">
+                </td>
+            </tr>
+        </table>
+        <input type="submit">
+        </form>
+        
+        </div>
+        
+ 
+        <% include ../footer.ejs %>
+    </div>
+    </body>
+    
+    <script type="text/javascript">
+    function SignInFormCheck(){
+        
+        if ( document.getElementById('id').value == "" ){
+            alert("id를 입력해주세요!");
+            return;
+        }
+        if ( document.getElementById('p1').value == "" || document.getElementById('p2').value == "" ){
+            alert("비밀번호를 입력해주세요!");
+            return;
+        }
+        if ( document.getElementById('p1').value != document.getElementById('p2').value ){
+            alert("비밀번호 입력을 다시 확인 해주세요!");
+            document.getElementById('p1').value = "";
+            document.getElementById('p2').value = "";
+            return;
+        }
+        if ( document.getElementById('displayName').value == "" ){
+            alert("별명을 입력해주세요!");
+            return;
+        }
+        if ( document.getElementById('birth').value == "" ){
+            alert("생년월일을 입력해주세요!");
+            return;
+        }
+        if ( document.getElementById('email').value == "" ){
+            alert("이메일을 입력해주세요!");
+            return;
+        }
+        
+         document.sub.submit();
+        
+    }   
+    </script>
+</html>

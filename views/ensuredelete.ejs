@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>글 삭제</title> 
+        
+    </head>
+
+    <link rel='stylesheet' href="/custom.css">
+    <body>
+            <% include ./menubar.ejs %>
+    <div id="root"> 
+
+       
+        
+        <% include ./leftsidebar.ejs %>
+
+        <div id="con">
+            <div id="con2">
+        <H1 style=""> 글 삭제</H1>
+        <Hr >
+            <div style="border:1px solid black; background:#FFFAFA; padding:10px; text-align:center">
+            
+            <strong>*주의 : 삭제 된 글은 다시 복구 할 수 없습니다.</strong> <br><br>
+            
+            <form action="/board/delete" method="post" id="sub">
+                <% if ( !locals.user ) { %>
+                    글의 비밀번호를 입력하세요. <br>
+                    비밀번호 : <input id="pass" type="text">
+                    <input type="text" hidden="hidden" value="<%=idx%>" name="idx">
+                    <button class="btn-1" type="button" onclick="deletebefore()">삭제</button>
+                <% }else{ %>
+                    <input id="pass" type="hidden" value="111">
+                    <button class="btn-1">삭제</button>
+                <% } %>
+            </form>
+            
+            </div>
+
+            <input type="text" id="realpass" value="<%=password%>">
+
+        
+        </div>
+
+        </div>
+        
+ 
+       
+    </div>
+    <% include ./footer.ejs %>
+    </body>
+    
+    <script type="text/javascript">
+    var pw = document.getElementById("realpass").value;
+    function deletebefore(){
+        if ( document.getElementById("pass").value == ""){
+            alert("비밀번호를 입력해주세요!");
+            return;
+        }
+        
+        if ( document.getElementById("pass").value != pw){
+            alert("비밀번호가 다릅니다!");
+            return;
+        }
+        var reult;
+        document.getElementById('sub').submit();
+    }
+    </script>
+</html>

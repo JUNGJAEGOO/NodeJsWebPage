@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" href="/shCoreDefault.css"></style>
+        <link rel="stylesheet" href="/shThemeDefault.css"></style>
+        <title><%=title%></title> 
+        
+    </head>
+
+    <link rel='stylesheet' href="/custom.css">
+    <body>
+            <% include ./menubar.ejs %>
+    <div id="root"> 
+
+       
+        
+        <% include ./leftsidebar.ejs %>
+
+        <div id="con">
+            <div id="con2">
+        <H1 style=""><%=title%></H1>
+        <Hr >
+        <p>안녕하세요. <%=title%> 페이지 입니다.</p> 
+            
+            EJS 템플릿 사용시 유의 사항 <br>
+            <pre class="brush:java">
+
+              템플릿에서 변수를 받을때
+              &#60;%= %&#62; 으로 감싸주면 자동 이스케이핑 되고 
+              &#60;%- %&#62; 으로 감싸주면 자동 이스케이핑 되지 않습니다.
+              
+              ex) 템플릿에서 받는 문자 변수가 '<' 라고 가정 하면
+              &#60;%= 로 받으면 이스케이핑 되어서 받아지고
+              &#60;%- 로 받으면 이스케이핑 되지 않고 < 로 받아진다.
+              그러므로 이 점을 유의하여 사용하여야 한다. 
+
+            </pre>
+           
+            <br>
+
+            SyntaxHighlighter 사용시 유의 사항 <br>
+            <pre class="brush:java">
+
+                1. 초기 사용시 유의 사항
+                반드시 마지막에
+                <script type="text/javascript">SyntaxHighlighter.all();</script>
+                로 초기화를 시켜주어야 합니다.
+
+                
+                2. 스크롤바 삭제
+                shCorDefault.css 에서
+                .syntaxhighlighter { padding-bottom: 1px; }
+                를주면 스크롤바 삭제 가능
+                
+            </pre>
+
+        
+        </div>
+
+        </div>
+        
+ 
+       
+    </div>
+    <% include ./footer.ejs %>
+    </body>
+
+    <script type="text/javascript" src="/shCore.js"></script>
+    <script type="text/javascript" src="/shBrushJava.js"></script>
+    <script type="text/javascript">SyntaxHighlighter.all();</script>
+</html>

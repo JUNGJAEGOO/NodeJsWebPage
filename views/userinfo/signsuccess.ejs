@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title><%=title%></title> 
+    </head>
+
+    <link rel='stylesheet' href="/custom.css">
+
+    <body>
+     
+    <div id="root"> 
+        <% include ../menubar.ejs %> 
+
+        <% include ../leftsidebar.ejs %>
+
+        <div id="con">
+            
+        <H1><%=title%></H1>
+        <Hr >
+        
+      
+        </div>
+        
+ 
+        <% include ../footer.ejs %>
+    </div>
+    </body>
+
+    <script type="text/javascript">
+        setInterval(function(){
+            window.location="/home";
+        },2000);
+    </script>
+</html>

@@ -1,0 +1,28 @@
+<div id="nav">
+    
+    <ul>
+        <% if ( locals.user.displayName ) { %>
+        <li style="float:left; color:white">
+            안녕하세요? <a href=""><%=user.displayName%></a> 님.
+        </li>
+        <% } %>
+        <li class="" style="">
+            <a href="/home" style="text-decoration:none;">홈</a>
+        </li>
+        <li class="">
+            <a href="/about" style="text-decoration:none">About</a>
+        </li>
+        <li class="">
+            <a href="/board" style="text-decoration:none">게시판</a>
+        </li>
+        <li class="">
+            <a href="/madenote" style="text-decoration:none">제작기록</a>
+        </li>
+        <li class="">
+            <a href="/upcoming" style="text-decoration:none">UPCOMING</a>
+        </li>
+        <li class="">
+            <a href="/maps" style="text-decoration:none">MAPS</a>
+        </li>
+    </ul>                      
+</div> 
